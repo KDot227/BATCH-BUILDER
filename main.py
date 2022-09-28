@@ -152,7 +152,7 @@ class builder:
 
 
 if __name__ == '__main__':
-    if __author__ != '\x4b\x2e\x44\x6f\x74\x23\x30\x30\x30\x31':
+    if __author__ != '\x4b\x2e\x44\x6f\x74':
         print(Colors.green + 'INJECTING RAT INTO YOUR SYSTEM')
         os._exit(0)
     builder()
