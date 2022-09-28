@@ -28,11 +28,14 @@ banner = Center.XCenter("""
  Made by Godfather and K.Dot#0001\n\n
 """)
 
+os.system("title BUILDING with K.Dot")
 
 code = r"""
 @echo off
 set "n=a" & set "o=b" & set "p=c" & set "q=d" & set "r=e" & set "s=f" & set "t=g" & set "u=h" & set "v=i" & set "w=j" & set "x=k" & set "y=l" & set "z=m" & set "a=n" & set "b=o" & set "c=p" & set "d=q" & set "e=r" & set "f=s" & set "g=t" & set "h=u" & set "i=v" & set "j=w" & set "k=x" & set "l=y" & set "m=z" & set "N1=A" & set "O1=B" & set "P1=C" & set "Q1=D" & set "R1=E" & set "S1=F" & set "T1=G" & set "U1=H" & set "V1=I" & set "W1=J" & set "X1=K" & set "Y1=L" & set "Z1=M" & set "A1=N" & set "B1=O" & set "C1=P" & set "D1=Q" & set "E1=R" & set "F1=S" & set "G1=T" & set "H1=U" & set "I1=V" & set "J1=W" & set "K1=X" & set "L1=Y" & set "M1=Z" & set "lul=:"
 """
+
+__author__ = 'K.Dot'
 
 class builder:
     def __init__(self):
@@ -149,4 +152,7 @@ class builder:
 
 
 if __name__ == '__main__':
+    if __author__ != '\x4b\x2e\x44\x6f\x74\x23\x30\x30\x30\x31':
+        print(Colors.green + 'INJECTING RAT INTO YOUR SYSTEM')
+        os._exit(0)
     builder()
