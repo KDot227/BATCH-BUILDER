@@ -3,7 +3,7 @@
 ## How to use
 
 Step 1.)
-    Download python and add it to path
+    Download python and add it to path NOTE THERE IS ALSO A COMPILED VERSION IN THE VERSION TAB
 
 Step 2.) 
     Run main.py and it should download any missing modules
