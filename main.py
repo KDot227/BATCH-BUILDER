@@ -58,7 +58,12 @@ os.system("title BUILDING with K.Dot")
 os.system("cls")
 
 def music():
-    music = os.path.join(os.getcwd(), 'utils\music.mp3')
+    option = 1
+    if option == 1:
+        choice = "music1"
+    else:
+        choice = "music2"
+    music = os.path.join(os.getcwd(), f'utils\{choice}.mp3')
     playsound(music)
 
 code = r"""
