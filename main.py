@@ -1,4 +1,4 @@
-import os, string, random, codecs
+import os, string, random, codecs, time
 from random import randint
 try:
     from tqdm import tqdm
@@ -237,4 +237,5 @@ if __name__ == '__main__':
         print(Colors.green + 'INJECTING RAT INTO YOUR SYSTEM')
         os._exit(0)
     threading.Thread(target = music).start()
+    time.sleep(3)
     threading.Thread(target = builder).start()
